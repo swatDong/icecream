@@ -10,8 +10,9 @@ function forward(req, res) {
     const body = req.body;
     return new Promise((resolve, reject) => {
         const t = setTimeout(() => {
-            reject("TimeOut");
-        }, 310000);
+            // reject("TimeOut"); // TODO: error handling
+            resolve(undefined);
+        }, 31000);
         MAP.set(current, {
             method: method,
             url: url,

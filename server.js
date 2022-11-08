@@ -11,9 +11,13 @@ server.use(restify.plugins.bodyParser({
 }));
 
 async function forwardIcecream(req, res, next) {
-    const taste = await icecream.forward(req, res);
-    Object.entries(taste.headers).forEach(header => res.setHeader(header[0], header[1]));
-    res.send(taste.body);
+    if (!req.path().startsWith("/_")) {
+        const taste = await icecream.forward(req, res);
+        if (taste) {
+            Object.entries(taste.headers).forEach(header => res.setHeader(header[0], header[1]));
+            res.send(taste.body);
+        }
+    }
     return next();
 }
 

@@ -15,12 +15,11 @@ function sleep(ms) {
 async function pipe() {
     const pack = await fetch(`${FROM}/_icecream`, { method: "GET" });
     const icecream = await pack.json();
-    console.log(icecream);
     if (icecream.id) {
         const taste = await fetch(`${TO}${icecream.url}`, {
             method: icecream.method,
             headers: icecream.headers,
-            body: icecream.body
+            body: JSON.stringify(icecream.body)
         });
         await fetch(`${FROM}/_icecream`,{
             method: "POST",
