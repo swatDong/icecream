@@ -1,0 +1,24 @@
+{
+  "name": "icecream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "node client.js",
+    "server": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swatDong/icecream.git"
+  },
+  "author": "swatDong",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "homepage": "https://github.com/swatDong/icecream#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "restify": "^8.6.1"
+  }
+}
